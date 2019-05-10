@@ -20,8 +20,6 @@ services:
     image: tomcat:alpine
     ports:
       - 8080:8080
-      - 80:8080
-      - 443:8443
     volumes:
       - ./webapps:/usr/local/tomcat/webapps
     environment:
@@ -29,3 +27,7 @@ services:
       LETSENCRYPT_HOST: odk-aggregate.amed-bu.com
       LETSENCRYPT_EMAIL: ntds.team@gmail.com
       AGGREGATE_HOST: odk-aggregate.amed-bu.com
+networks:
+  default:
+    external:
+      name: shared
